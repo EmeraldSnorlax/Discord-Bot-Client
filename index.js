@@ -145,7 +145,14 @@ async function main() {
 		else if (c == `${tlib.CSI}D`) {
 			uinput.handleLeft()
 		}
+		else if (c == `\r`) {
+			console.log(uinput.buf)
+			uinput.pos=0
+			uinput.len=0
+			uinput.buf.fill('\x00')
+		}
 		else {
+			console.log([c])
 			uinput.putchar(c)
 		}
 		uinput.draw()
