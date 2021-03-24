@@ -96,6 +96,26 @@ class UInput {
 	}
 }
 
+class MessageComponent {
+	sh;
+	sw;
+	x;
+	y;
+	lines;
+	linelimit;
+	viewbuf;
+	
+	constructor(opts) {
+		this.x = opts.x || 1
+		this.y = opts.y || 1
+	}
+
+	write(data) {
+		tlib.setCursorPos(this.x,this.y)
+		process.stdout.write(data)
+	}
+}
+
 function login() {
   
 }
@@ -118,7 +138,18 @@ async function main() {
 	else {
 		termsize = config.termsize;
 	}
-	
+
+	let output = new MessageComponent({
+		height: termsize.height-1,
+		width: termsize.width,
+		x: 1,
+		y: 1
+	})
+
+	console.log = function(data) {
+		output.write(data)
+	}
+
 	let uinput = new UInput({
 		height: 1,
 		width:  termsize.width,
@@ -152,7 +183,6 @@ async function main() {
 			uinput.buf.fill('\x00')
 		}
 		else {
-			console.log([c])
 			uinput.putchar(c)
 		}
 		uinput.draw()
