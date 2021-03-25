@@ -4,6 +4,7 @@ process.stdin.setEncoding('utf8')
 
 const fs = require('fs');
 const tlib=require('./tlib')
+const enums=require('./enum')
 const SETTINGSPATH = "./config.json"; //TODO: This should go somewhere in ~ when finished, A way to configure this would also be pretty neat, but I'm not sure how that would work
 const limit = 2000; // shitcords character limit.
 
@@ -52,7 +53,7 @@ class UInput {
 	}
 
 	putchar(c) {
-		this.buf.copy(this.buf,this.pos+1,this.pos)
+		this.buf.copy(this.buf,this.pos+1,this.pos,this.len)
 		this.buf.write(c,this.pos)
 		this.len++
 		this.pos++
@@ -101,18 +102,32 @@ class MessageComponent {
 	sw;
 	x;
 	y;
-	lines;
-	linelimit;
-	viewbuf;
-	
+	buf;
+	line;
+	col;
+
 	constructor(opts) {
 		this.x = opts.x || 1
 		this.y = opts.y || 1
+		this.sw = opts.width
+		this.sh = opts.height
+		this.line = 1
+		this.col  = 1
+		this.buf = Buffer.alloc(this.sw*this.sh)
+	}
+	
+	write(data) {
+		tlib.setCursorPos(this.line,this.col)
+		String(data).split('').forEach((d) => {
+			this.buf.write(d,this.line*this.sw+this.col)
+			this.col++;
+		})
+		this.render()
 	}
 
-	write(data) {
+	render() {
 		tlib.setCursorPos(this.x,this.y)
-		process.stdout.write(data)
+		process.stdout.write(this.buf)
 	}
 }
 
@@ -125,6 +140,10 @@ function getConfig() {
 		return JSON.parse(fs.readFileSync(SETTINGSPATH));
 	}
 	else return {}
+}
+
+function handleCommand(cmd) {
+
 }
 
 async function main() {
@@ -158,6 +177,20 @@ async function main() {
 	})
 	uinput.draw();
 
+	console.log("Discord-CLI 0.0.1\n")
+	
+	if (config["auth"]) {
+		console.log("Logging in\n")
+		let auth;
+		if (config.auth.location == enums.AUTHLOCATION.ENV) {
+			auth = process.env.auth
+		}
+
+		if (config.auth.type == enums.AUTH.BOT) {
+			
+		}  
+	}
+
 	process.stdin.on('data', (c) => {
 		//console.log([c,tlib.CSI]) 
 		//console.log(c==`${tlib.CSI}A`)
@@ -177,7 +210,10 @@ async function main() {
 			uinput.handleLeft()
 		}
 		else if (c == `\r`) {
-			console.log(uinput.buf)
+			if (uinput.buf[0] = '/') {
+				handleCommand(uinput.buf.toString('utf8',1,uinput.len))
+			}
+			console.log(uinput.buf.toString('utf8',0,uinput.len))
 			uinput.pos=0
 			uinput.len=0
 			uinput.buf.fill('\x00')
