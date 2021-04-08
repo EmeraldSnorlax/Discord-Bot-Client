@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Discord</title>
+        <style>
+            .userinfo {
+                flex-grow: 0;
+                flex-shrink: 0;
+                flex-basis: auto;
+                height: 52px;
+                display: flex;
+                padding-left: 8px;
+                padding-right: 8px;
+                margin-bottom: 1px;
+            }
+            .userinfo .avatarcontainer {
+                display: block;
+                height: 32px;
+                width: 32px;
+                margin-right: 8px;
+            }
+            .userinfo .avatarcontainer .avatar {
+                display: flex;
+                position: absolute;
+                height: 32px;
+                width: 32px;
+            }
+            .userinfo .nametag {
+                display: block;
+                margin-right: 4px;
+            }
+            .userinfo .nametag .username {
+                display: flex;
+
+            }
+            .userinfo .nametag .extratxt {
+                display: flex;
+            }
+
+            .guildsidebar {
+                display: flex;
+                width: 72px;
+                flex-shrink: 0;
+                flex-direction: column;
+            }
+
+            .guildlist {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .guildbtn {
+                width: 72px;
+            }
+
+            .approot {
+                display: flex;
+            }
+
+            .appbase {
+                display: flex;
+                flex-grow: 1;
+            }
+
+            .appsidebar {
+                display: flex;
+                flex-grow: 0;
+                flex-shrink: 0;
+                flex-basis: auto;
+                flex-direction: column;
+            }
+
+            .appsidebar-main {
+                display: flex;
+                flex-direction: column;
+                flex-grow: 1;
+                flex-shrink: 1;
+                flex-basis: auto;
+            }
+
+            .appsidebar-scroller {
+                overflow: hidden scroll;
+                flex-grow: 1;
+                flex-shrink: 1;
+                flex-basis: auto;
+            }
+
+            .chat {
+                display: flex;
+                flex-grow: 1;
+                flex-shrink: 1;
+                flex-basis: auto;
+            }
+
+            .channel-item {
+                padding-top: 1px;
+                padding-bottom: 1px;
+                padding-right: 0px;
+                padding-left: 0px;
+                overflow-x: visible;
+                overflow-y: visible;
+                position: relative;
+            }
+            
+            .unread-indicator {
+                position:absolute;
+                height: 8px;
+                width: 4px;
+                border-top-left-radius: 0px;
+                border-bottom-left-radius: 0px;
+                border-top-right-radius: 4px;
+                border-bottom-right-radius: 4px;
+                top: 50%;
+                left: 0;
+                margin-top: -4px;
+            }
+
+            .channel-item-content {
+                position: relative;
+                box-sizing: border-box;
+                padding-top: 0px;
+                padding-bottom: 0px;
+                padding-right: 8px;
+                padding-left: 8px;
+                margin-left: 8px;
+                border-bottom-left-radius: 4px;
+                border-top-left-radius: 4px;
+                border-bottom-right-radius: 4px;
+                border-top-right-radius: 4px;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+            }
+
+            .channel-icon-container {
+                position: relative;
+                margin-right: 6px;
+            }
+
+            .channel-icon {
+                display: block;
+                width: 20px;
+                height: 20px;
+                flex-grow: 0;
+                flex-shrink: 0;
+                flex-basis: auto;
+            }
+            
+            .channel-name {
+                font-size: 16px;
+                line-height: 20px;
+                font-weight: 500;
+                flex-grow: 1;
+                flex-shrink: 1;
+                flex-basis: auto;
+            }
+
+            .channel-name-inner {
+                white-space: nowrap;
+                overflow-y: hidden;
+                overflow-x: hidden;
+                text-overflow: ellipsis;
+            }
+
+            .chat-root {
+                display: flex;
+            }
+
+            .channel-header {
+                display:flex;
+            }
+
+            .channel-header-children {
+                display: flex;
+            }
+
+            .channel-header-icon-wrapper {
+                display: block;
+            }
+
+            .channel-header-icon {
+                display:block;
+            }
+
+            .channel-header-title {
+                display:flex;
+            }
+
+            .divider {
+                display:block;
+            }
+
+            .channel-header-topic {
+                display:block;
+            }
+
+            .channel-header-toolbar {
+                display:flex
+            }
+
+            .channel-header-mute-button-wrapper {
+                display:block
+            }
+
+            .channel-header-mute-button {
+                display: block;
+            }
+
+            .channel-header-pins-button-wrapper {
+                display: block;
+            }
+
+            .channel-header-pins-button {
+                display: block;
+            }
+            
+            .main-content {
+                display: flex;
+            }
+
+            .chat-content {
+                display: flex;
+            }
+
+            .messages-wrapper {
+                display: flex;
+            }
+
+            .messages-scroller {
+                display: block;
+            }
+
+            .messages-scroller-content {
+                display: flex;
+            }
+
+            .messages-scroller-inner {
+                display:block
+            }
+
+            .message-bar-form {
+                display: block
+            }
+
+            .message-bar-channel-text-area {
+                display: block;
+            }
+
+            .message-bar-scrollable-container {
+                display: block
+            }
+
+            .inner-message-bar {
+                display: flex;
+            }
+
+            .text-area-slate {
+                display:block
+            }
+
+            .text-area-placeholder {
+                display: block;
+            }
+
+            .message-bar-markup {
+                display: block;
+            }
+
+            .message-bar-slate-block {
+                display:block
+            }
+
+            .message-bar-slate-text {
+
+            }
+
+            .message-bar-slate-text-inner {
+
+            }
+
+            .message-bar-content {
+
+            }
+
+            .message-bar-buttons {
+                display: flex;
+            }
+
+            .emoji-button-container {
+                display: flex;
+            }
+
+            .select-emoji-button {
+                display: flex
+            }
+
+            .select-emoji-button-contents {
+                display: block
+            }
+
+            .select-emoji-button-sprite {
+                display: block
+            }
+            
+        </style>
+        <script>
+            var gateway_seq = null
+            var gatewayHandlers = [];
+            var guildListC = {}
+            var userInfoE;
+            var guilds = {};
+            var activeGuildChannels = {};
+
+            var channelList
+
+            const INTENT = {
+                GUILDS: 1 << 0
+            };
+
+            const OPCODE = {
+                HEARTBEAT: 1,
+                IDENTIFY: 2,
+                RESUME: 6,
+                INVALID_SESSION: 9,
+                HELLO: 10
+            }
+
+            const CHANNEL_TYPE = {
+                GUILD_TEXT: 0,
+                DM: 1,
+                GUILD_VOICE: 2,
+                GROUP_DM: 3,
+                GUILD_CATEGORY: 4,
+                GUILD_NEWS: 5,
+                GUILD_STORE: 6
+            }
+
+            const BASEURL          = 'https://discord.com/api/v8'
+            const UPDATEGATEWAYURL = `${BASEURL}/gateway`
+            const CDNURL           = 'https://cdn.discordapp.com'
+
+            class GuildButton {
+                constructor(opts) {
+                    this.rootDiv = document.createElement("div")
+                    this.imgbtn = document.createElement("img")
+                    
+                    if (opts.obj.unavailable) {
+                        this.outageindicator = document.createElement("img")
+                        this.rootDiv.appendChild(this.outageindicator)
+                    }
+
+                    this.rootDiv.className = "guildbtn"
+                    this.rootDiv.appendChild(this.imgbtn)
+                    this.rootDiv.setAttribute('id', opts.obj.id) // Not required, but helpful in identifying guilds in the html
+                    opts.parent.appendChild(this.rootDiv)
+
+                    let activate = (e) => {
+                        setActiveGuild(opts.obj.id);
+                    }
+                    this.rootDiv.addEventListener("click", activate)
+                }
+            }
+
+            class GuildTextChannel {
+                static rootClass = "channel-item"
+                static unreadIndicatorClass = "unread-indicator"
+                static contentClass = "channel-item-content"
+                static iconContainerClass = "channel-icon-container"
+                static iconClass = "channel-icon"
+                static nameClass = "channel-name"
+                static channelNameClass = "channel-name-inner"
+
+                constructor(opts) {
+                    this.displayed = opts.displayed || false;
+                    this.type      = opts.type      || CHANNEL_TYPE.GUILD_TEXT;
+                    this.name      = opts.name
+
+                    this.item      = document.createElement("div");
+
+                    let unreadIndicator = document.createElement("div");
+                    let content = document.createElement("div");
+                    let iconContainer = document.createElement("div");
+                    let icon = document.createElement("img");
+                    let name = document.createElement("div");
+                    let channelName = document.createElement("div");
+
+                    this.item.appendChild(unreadIndicator);
+                    this.item.appendChild(content);
+                    content.appendChild(iconContainer)
+                    content.appendChild(name)
+                    iconContainer.appendChild(icon)
+                    name.appendChild(channelName)
+
+                    this.item.className = GuildTextChannel.rootClass;
+                    unreadIndicator.className = GuildTextChannel.unreadIndicatorClass;
+                    content.className = GuildTextChannel.contentClass;
+                    iconContainer.className = GuildTextChannel.iconContainerClass;
+                    icon.className = GuildTextChannel.iconClass;
+                    name.className = GuildTextChannel.nameClass;
+                    channelName.className = GuildTextChannel.channelNameClass;
+
+                    channelName.textContent = this.name;
+                }
+            }
+
+            function addChannelToList(obj) {
+                switch (obj.type) {
+                    case CHANNEL_TYPE.GUILD_TEXT: {
+                        let c = new GuildTextChannel({
+                            displayed: 1,
+                            type: CHANNEL_TYPE.GUILD_TEXT,
+                            name: obj.name
+                        })
+                        activeGuildChannels[obj.id] = c;
+                        break;
+                    }
+
+                    default:
+                        console.warn("invalid channel: ", obj)
+                }
+            }
+
+            function removeChannelFromList(id) {
+
+            }
+
+            function redrawChannelList() {
+                let v
+                for (v of Object.keys(activeGuildChannels)) {
+                    channelList.appendChild(activeGuildChannels[v].item)
+                }
+
+            }
+
+            function clearChannelList() {
+                let v
+                for (v of Object.keys(activeGuildChannels)) {
+                    channelList.removeChild(activeGuildChannels[v].item)
+                }
+                activeGuildChannels = {}
+            }
+
+            function setActiveGuild(id) {
+                let c = guilds[id];
+                console.log(c);
+                
+                clearChannelList()
+
+                c.channels.forEach((c) => {
+                    addChannelToList(c)
+                })
+
+                redrawChannelList()
+            }
+
+            function setActiveChannel(id) {
+
+            }
+
+            function mkavatarurl(id, av, q) {
+                return `${CDNURL}/${id}/${av}${q?``:q}`
+            }
+
+            async function updateGatewayCache() {
+                let res = await fetch(UPDATEGATEWAYURL)
+                let r   = await res.json()
+                localStorage.setItem('GATEWAY_URL', r.url);
+                return r.url;
+            }
+
+            async function sendHeartbeat() {
+                window.gateway.send(JSON.stringify({
+                    op: OPCODE.HEARTBEAT,
+                    d: gateway_seq
+                }))
+            }
+
+            async function handleGateway(ev) {
+                let p = JSON.parse(ev.data)
+                if (p.s) {
+                    gateway_seq = p.s;
+                    localStorage.setItem('gateway_seq', p.s);
+                }
+                dispatchEvent(new CustomEvent('any', {detail:p}))
+                if (p.op == 0) {
+                    dispatchEvent(new CustomEvent(p.t, {detail:p.d}))
+                }
+                else if (p.op == OPCODE.HELLO) {
+                    dispatchEvent(new CustomEvent('hello',{detail:p.d}))
+                }
+            }
+
+            async function initGateway() {
+                let wsurl = localStorage.getItem('GATEWAY_URL');
+                if (!wsurl) wsurl = await updateGatewayCache();
+                addEventListener('hello', (e) => {
+                    console.log(e)
+                    window.gatewayHeartbeat = setInterval(sendHeartbeat,e.detail.heartbeat_interval)
+                })
+                let gateway = new WebSocket(`${wsurl}?v=8`)
+                gateway.onmessage = handleGateway
+                window.gateway = gateway
+            }
+
+            async function sessionResume(tkn,sid,seq) {
+                return new Promise((res,rej) => {
+                    let check;
+                    check = (e) => {
+                        if (e.detail.op != OPCODE.INVALID_SESSION) {
+                            removeEventListener('any', check)
+                            res(true);
+                        }
+                        else {
+                            removeEventListener('any', check)
+                            res(false)
+                        }
+                    }
+                    console.log(sid)
+                    addEventListener('any', check)
+                    gateway.send(JSON.stringify({
+                        op: OPCODE.RESUME,
+                        d: {
+                            token: tkn,
+                            session_id: sid,
+                            seq: seq
+                        }
+                    }))
+                    
+                })
+            }
+
+            async function handleGuildC(e) {
+                if (e.detail.icon != null) {
+                    guildListC[e.detail.id].imgbtn.src = `${CDNURL}/icons/${e.detail.id}/${e.detail.icon}.png`
+                    guildListC[e.detail.id].imgbtn.width=42
+                    guildListC[e.detail.id].imgbtn.height=42;
+                }
+                guilds[e.detail.id] = e.detail
+            }
+
+            async function handleReady(e) {
+                localStorage.setItem('session', e.detail.session_id);
+
+                addEventListener("GUILD_CREATE", handleGuildC)    
+                e.detail.guilds.forEach((g) => {
+                    let d = new GuildButton({parent: document.getElementById('guildlist'),obj:g})
+                    guildListC[g.id] = d
+                    guilds[g.id] = g
+                })
+
+                let uinfo = document.getElementById('userinfo')
+                let avatardiv = document.createElement("div")
+                let avatarimg = document.createElement("img")
+                let textdiv = document.createElement("div")
+                let username = document.createElement("a")
+                let secondline = document.createElement("a")
+                
+                uinfo.appendChild(avatardiv)
+                avatardiv.appendChild(avatarimg)
+                uinfo.appendChild(textdiv)
+                textdiv.appendChild(username)
+                textdiv.appendChild(secondline)
+
+                avatardiv.className = 'avatarcontainer'
+                
+                avatarimg.className = 'avatar'
+                avatarimg.src       = `${CDNURL}/avatars/${e.detail.user.id}/${e.detail.user.avatar}?size=256`
+                textdiv.className   = 'nametag'
+                
+                username.className  = 'username'
+                username.innerText  = e.detail.user.username
+                username.onmouseenter=() => {secondline.innerText=`#${e.detail.user.discriminator}`}
+                username.onmouseleave=() => {secondline.innerText=""}
+
+                secondline.className= 'extratxt'
+            }
+
+            async function login() {
+                channelList = document.getElementById("channels");
+                let token = document.getElementById('token-input-box').value;
+                if (token == "") {
+                    token = localStorage.getItem(token)
+                }
+
+                /*let session = localStorage.getItem('session')
+                let seq     = localStorage.getItem('gateway_seq')
+                if (session != undefined) {
+                    if (await sessionResume(token, session, seq)) {
+                        return true;
+                    }
+                }*/
+
+                addEventListener('READY', handleReady)
+                window.gateway.send(JSON.stringify(
+                    {
+                        op: OPCODE.IDENTIFY,
+                        d: {
+                            token: token,
+                            intents: INTENT.GUILDS,
+                            properties: {
+
+                            }
+                        }
+                    }
+                ))
+                console.log(token)
+            }
+
+            async function main() {
+                await initGateway();
+            }
+
+            main()
+        </script>
+    </head>
+    <html>
+        <div id=login>
+            <div id=auth-title>
+                <a>Token Auth</a>
+            </div>
+            <div id=token-input>
+                <input type=text id=token-input-box>
+            </div>
+            <div id=login-btn>
+                <button onclick="login()">Login</button>
+            </div>
+        </div>
+        <div id=app class="approot">
+            <div id = guild-sidebar class="guildsidebar">
+                <div id=guildlist class = "guildlist"></div>
+            </div>
+            <div id=base class="appbase">
+                <div id=side class="appsidebar">
+                    <div id=appsidebarmain class="appsidebar-main">
+                        <div id=channels class="appsidebar-scroller"></div>
+                    </div>
+                    <div id=userinfo class="userinfo"></div>
+                </div>
+                <div id=chat class="chat-root">
+                    <div id=channel-header class="channel-header">
+                        <div id=channel-header-children class="channel-header-children">
+                            <div id=channel-header-icon-wrapper class="channel-header-icon-wrapper">
+                                <img id=channel-header-icon class="channel-header-icon">
+                            </div>
+                            <h3 id=channel-header-title class="channel-header-title"></h3>
+                            <div class="divider"></div>
+                            <div id=channel-header-topic class="channel-header-topic"></div>
+                        </div>
+                        <div id=channel-header-toolbar class="channel-header-toolbar">
+                            <div id=channel-header-mute-button-wrapper class="channel-header-mute-button-wrapper">
+                                <img id=channel-header-mute-button class="channel-header-mute-button">
+                            </div>
+                            <div id=channel-header-pins-button-wrapper class="channel-header-pins-button-wrapper">
+                                <img id=channel-header-pins-button class="channel-header-pins-button">
+                            </div>
+                            <!--
+                            <div id=channel-header-members-wrapper>
+                                <img>
+                            </div>
+                            -->
+                        </div>
+                    </div>
+                    <div id=content class="main-content">
+                        <div id=chat-content class="chat-content">
+                            <div id=messages-wrapper class="messages-wrapper">
+                                <div id=messages-scroller class="messages-scroller">
+                                    <div id=messages-scroller-content class="messages-scroller-content">
+                                        <div id=messages-scroller-inner class="messages-scroller-inner"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <form id=message-bar-form class="message-bar-form">
+                                <div>
+                                    <div>
+                                        <div id=message-bar-channel-text-area class="message-bar-channel-text">
+                                            <div id=message-bar-scrollable-container class="message-bar-scrollable-container">
+                                                <div id=inner-message-bar class="inner-message-bar">
+                                                    <div id=text-area-slate class="text-area-slate">
+                                                        <div id=text-area-placeholder class="text-area-placeholder"></div>
+                                                        <div id=message-bar-markup class="message-bar-markup">
+                                                            <div id=message-bar-slate-block class="message-bar-slate-block">
+                                                                <span id=message-bar-slate-text class="message-bar-slate-text">
+                                                                    <span id=message-bar-slate-text-inner class="message-bar-slate-text-inner">
+                                                                        <span id=message-bar-content class="message-bar-content"></span>
+                                                                    </span>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div id=message-bar-buttons class="message-bar-buttons">
+                                                        <div id=emoji-button-container class="emoji-button-container">
+                                                            <div id=select-emoji-button class="select-emoji-button">
+                                                                <div id=select-emoji-button-contents class="select-emoji-button-contents">
+                                                                    <img id=select-emoji-button-sprite class="select-emoji-button-sprite">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <!--<div id=member-list-wrapper></div>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </html>
+</html>

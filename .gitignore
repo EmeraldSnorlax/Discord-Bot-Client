@@ -1,4 +1,6 @@
 .replit
 .vscode
-config.json
+config.js
 session
+node_modules
+package-lock.json
