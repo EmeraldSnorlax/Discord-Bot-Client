@@ -1,5 +1,6 @@
 .userinfo {
     display: flex;
+    height: 52px;
 }
 .userinfo .avatarcontainer {
     display: block;
@@ -16,11 +17,13 @@
 }
 .userinfo .nametag .extratxt {
     display: flex;
+    width: 84px;
 }
 
 .guildsidebar {
     display: flex;
     flex-direction: column;
+    width:72px;
 }
 
 .guildlist {
@@ -33,6 +36,8 @@
 
 .approot {
     display: flex;
+    width: 100%;
+    height: 100%;
 }
 
 .appbase {
@@ -43,6 +48,7 @@
 .appsidebar {
     display: flex;
     flex-direction: column;
+    width:240px;
 }
 
 .appsidebar-main {
@@ -93,6 +99,7 @@
 
 .channel-header {
     display:flex;
+    height: 48px;
 }
 
 .channel-header-children {
@@ -101,6 +108,8 @@
 
 .channel-header-icon-wrapper {
     display: block;
+    width:24px;
+    height:24px;
 }
 
 .channel-header-icon {
@@ -113,6 +122,8 @@
 
 .divider {
     display:block;
+    height: 24px;
+    width:1px;
 }
 
 .channel-header-topic {
@@ -124,19 +135,27 @@
 }
 
 .channel-header-mute-button-wrapper {
-    display:block
+    display:block;
+    height:24px;
+    width:24px;
 }
 
 .channel-header-mute-button {
     display: block;
+    height:24px;
+    width:24px;
 }
 
 .channel-header-pins-button-wrapper {
     display: block;
+    height:24px;
+    width:24px;
 }
 
 .channel-header-pins-button {
     display: block;
+    height:24px;
+    width:24px;
 }
 
 .main-content {
@@ -172,6 +191,7 @@
 
 .message-bar-channel-text-area {
     display: block;
+    width: 982px;
 }
 
 .message-bar-scrollable-container {
@@ -183,7 +203,9 @@
 }
 
 .text-area-slate {
-    display:block
+    display:block;
+    height: 44px;
+    width: 772px;
 }
 
 .text-area-placeholder {
@@ -213,6 +235,7 @@
 .message-bar-buttons {
     display: flex;
     flex-direction: row;
+    height: 44px
 }
 
 .emoji-button-container {
@@ -228,5 +251,7 @@
 }
 
 .select-emoji-button-sprite {
-    display: block
+    display: block;
+    height: 22px;
+    width: 22px;
 }
