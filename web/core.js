@@ -136,7 +136,6 @@ function clearChannelList() {
 
 function setActiveGuild(id) {
     let c = guilds[id];
-    console.log(c);
     
     clearChannelList()
 
@@ -188,7 +187,6 @@ async function initGateway() {
     let wsurl = localStorage.getItem('GATEWAY_URL');
     if (!wsurl) wsurl = await updateGatewayCache();
     addEventListener('hello', (e) => {
-        console.log(e)
         window.gatewayHeartbeat = setInterval(sendHeartbeat,e.detail.heartbeat_interval)
     })
     let gateway = new WebSocket(`${wsurl}?v=8`)
@@ -297,7 +295,6 @@ async function login() {
             }
         }
     ))
-    console.log(token)
 }
 
 async function main() {
