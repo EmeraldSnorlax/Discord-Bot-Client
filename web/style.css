@@ -1,0 +1,232 @@
+.userinfo {
+    display: flex;
+}
+.userinfo .avatarcontainer {
+    display: block;
+}
+.userinfo .avatarcontainer .avatar {
+    display: flex;
+}
+.userinfo .nametag {
+    display: block;
+}
+.userinfo .nametag .username {
+    display: flex;
+
+}
+.userinfo .nametag .extratxt {
+    display: flex;
+}
+
+.guildsidebar {
+    display: flex;
+    flex-direction: column;
+}
+
+.guildlist {
+    display: flex;
+}
+
+.guildbtn {
+    
+}
+
+.approot {
+    display: flex;
+}
+
+.appbase {
+    display: flex;
+    flex-direction: column;
+}
+
+.appsidebar {
+    display: flex;
+    flex-direction: column;
+}
+
+.appsidebar-main {
+    display: flex;
+    flex-direction: column;
+}
+
+.appsidebar-scroller {
+
+}
+
+.chat {
+    display: flex;
+    flex-direction: column;
+}
+
+.channel-item {
+    
+}
+
+.unread-indicator {
+
+}
+
+.channel-item-content {
+    display: flex;
+}
+
+.channel-icon-container {
+
+}
+
+.channel-icon {
+    display: block;
+}
+
+.channel-name {
+
+}
+
+.channel-name-inner {
+
+}
+
+.chat-root {
+    display: flex;
+}
+
+.channel-header {
+    display:flex;
+}
+
+.channel-header-children {
+    display: flex;
+}
+
+.channel-header-icon-wrapper {
+    display: block;
+}
+
+.channel-header-icon {
+    display:block;
+}
+
+.channel-header-title {
+    display:flex;
+}
+
+.divider {
+    display:block;
+}
+
+.channel-header-topic {
+    display:block;
+}
+
+.channel-header-toolbar {
+    display:flex
+}
+
+.channel-header-mute-button-wrapper {
+    display:block
+}
+
+.channel-header-mute-button {
+    display: block;
+}
+
+.channel-header-pins-button-wrapper {
+    display: block;
+}
+
+.channel-header-pins-button {
+    display: block;
+}
+
+.main-content {
+    display: flex;
+    flex-direction: row;
+}
+
+.chat-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.messages-wrapper {
+    display: flex;
+}
+
+.messages-scroller {
+    display: block;
+}
+
+.messages-scroller-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.messages-scroller-inner {
+    display:block
+}
+
+.message-bar-form {
+    display: block
+}
+
+.message-bar-channel-text-area {
+    display: block;
+}
+
+.message-bar-scrollable-container {
+    display: block
+}
+
+.inner-message-bar {
+    display: flex;
+}
+
+.text-area-slate {
+    display:block
+}
+
+.text-area-placeholder {
+    display: block;
+}
+
+.message-bar-markup {
+    display: block;
+}
+
+.message-bar-slate-block {
+    display:block
+}
+
+.message-bar-slate-text {
+
+}
+
+.message-bar-slate-text-inner {
+
+}
+
+.message-bar-content {
+
+}
+
+.message-bar-buttons {
+    display: flex;
+    flex-direction: row;
+}
+
+.emoji-button-container {
+    display: flex;
+}
+
+.select-emoji-button {
+    display: flex
+}
+
+.select-emoji-button-contents {
+    display: block
+}
+
+.select-emoji-button-sprite {
+    display: block
+}
