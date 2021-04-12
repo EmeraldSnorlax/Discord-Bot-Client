@@ -5,100 +5,146 @@
         <link rel="stylesheet" href="style.css">
         <script src="core.js"></script>
     </head>
-    <html>
-        <div id=login>
-            <div id=auth-title>
-                <a>Token Auth</a>
-            </div>
-            <div id=token-input>
-                <input type=text id=token-input-box>
-            </div>
-            <div id=login-btn>
-                <button onclick="login()">Login</button>
-            </div>
-        </div>
-        <div id=app class="container-21gZY8">
-            <div id=guild-sidebar class="wrapper-3NnKdC guilds-1DWlCJ">
-                <div id=guildlist class="scroller-1Bvpku none-2Eo-qx scrollerBase-289Jih" style="overflow: hidden scroll; padding-right: 0px"></div>
-            </div>
-            <div id=base class="base-3dtUhz">
-                <div id=side >
-                    <div id=appsidebarmain >
-                        <div id=channels ></div>
-                    </div>
-                    <div id=userinfo ></div>
-                </div>
-                <div id=chat >
-                    <div id=channel-header >
-                        <div id=channel-header-children >
-                            <div id=channel-header-icon-wrapper >
-                                <img id=channel-header-icon >
-                            </div>
-                            <h3 id=channel-header-title ></h3>
-                            <div ></div>
-                            <div id=channel-header-topic ></div>
-                        </div>
-                        <div id=channel-header-toolbar >
-                            <div id=channel-header-mute-button-wrapper >
-                                <img id=channel-header-mute-button >
-                            </div>
-                            <div id=channel-header-pins-button-wrapper >
-                                <img id=channel-header-pins-button >
-                            </div>
-                            <!--
-                            <div id=channel-header-members-wrapper>
-                                <img>
-                            </div>
-                            -->
-                        </div>
-                    </div>
-                    <div id=content >
-                        <div id=chat-content >
-                            <div id=messages-wrapper >
-                                <div id=messages-scroller >
-                                    <div id=messages-scroller-content >
-                                        <div id=messages-scroller-inner ></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <form id=message-bar-form >
-                                <div>
-                                    <div>
-                                        <div id=message-bar-channel-text-area >
-                                            <div id=message-bar-scrollable-container >
-                                                <div id=inner-message-bar >
-                                                    <div id=text-area-slate >
-                                                        <div id=text-area-placeholder ></div>
-                                                        <div id=message-bar-markup >
-                                                            <div id=message-bar-slate-block >
-                                                                <span id=message-bar-slate-text >
-                                                                    <span id=message-bar-slate-text-inner >
-                                                                        <span id=message-bar-content ></span>
-                                                                    </span>
-                                                                </span>
-                                                            </div>
+    <body>
+        <div id="app-mount" class="appMount-3lHmkl">
+            <div class="app-1q1i1E">
+                <div class="app-2rEo0p">
+                    <div class="bg-h5JY_x"></div>
+                    <div class="layers-3iHuyZ layers-3q14ss">
+                        <div aria-hidden="false" class="layer-3QrUeG baseLayer-35bLyl">
+                            <div class="container-21gZY8">
+                                <nav class="wrapper-3NnKdC guilds-1SW1CJ" aria-label="Servers sidebar">
+                                    <ul role="tree" tabindex="0" data-list-id="guildsnav" aria-orientation="vertical" data-jump-section="global" class="tree-2wKJdG">
+                                        <div class="scroller-1Bvpku none-2Eo-qx scrollerBase-289Jih" dir="ltr" style="overflow: hidden scroll; padding-right: 0px;">
+                                            <div aria-label="Servers"></div>
+                                        </div>
+                                    </ul>
+                                </nav>
+                                <div class="base-3dtUhz">
+                                    <div class="content-98HsJk">
+                                        <div class="sidebar-2K8pFh">
+                                            <nav class="container-3w7J-x">
+                                                <div class="container-1taM1r clickable-25tGDB" aria-controls="popout_2" aria-expanded="false" role="button" tabindex="0">
+                                                    <header class="header-2V-4Sw">
+                                                        <div class="guildIconContainer-2FW_iA"></div>
+                                                        <h1 class="name-1jkAdW">(idk put the server name here)</h1>
+                                                        <svg width="18" height="18" class="button-1w5pas open-1Te94t"></svg>
+                                                    </header>
+                                                </div>
+                                                <div class="scroller-RmtA4e thin-1ybCId scrollerBase-289Jih fade-2kXiP2" aria-label="Channels" orientation="vertical" id="channels" tabindex="0" data-jump-section="global" style="overflow: hidden scroll; padding-right: 0px;"></div>
+                                            </nav>
+                                            <section class="panels-j1Uci_" aria-label="User area">
+                                                <div class="wrapper-24pKcD"></div>
+                                                <div class="container-3baos1">
+                                                    <div class="avatarWrapper-2yR4wp" aria-controls="popout_4" aria-expanded="false" aria-label="Set Status" role="button" tabindex="0">
+                                                        <div class="avatar-SmRMf2 wrapper-3t9DeA" role="img" style="width: 32px; height: 32px;">
+                                                            <svg width="40" height="32" class="mask-1l8v16 svg-2V3M55"></svg>
                                                         </div>
                                                     </div>
-                                                    <div id=message-bar-buttons >
-                                                        <div id=emoji-button-container >
-                                                            <div id=select-emoji-button >
-                                                                <div id=select-emoji-button-contents >
-                                                                    <img id=select-emoji-button-sprite >
+                                                    <div class="nameTag-3uD-yy canCopy-2VBT7N" aria-lavel="Click to copy username" role="button" tabindex="0">
+                                                        <div class="colorStandard-2KCXvj size14-e6ZScH usernameContainer-1fp4nu">
+                                                            <div class="size14-e6ZScH title-eS5yk3">username</div>
+                                                        </div>
+                                                        <div class="hoverRoll-YK53gQ">
+                                                            <div class="hovered-d5PMVU">#XXXX</div>
+                                                            <div class="default-3sgIpy">
+                                                                <div class="customStatus-3tC2ig">
+
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
+                                            </section>
+                                        </div>
+                                        <div class="chat-3bRxxu">
+                                            <!--add uploadarea idiot-->
+                                            <section class="title-3qD0b- container-1r6BKw themed-ANHk51" aria-label="Channel header">
+                                                <div class="children-19S4PO">
+                                                    <div class="iconWrapper-2OrFZ1" role="button" aria-label="Text-Channel" tabindex="-1">
+                                                        <svg width="24" height="24" class="icon-22AiRD"></svg>
+                                                    </div>
+                                                    <h3 role="button" class="title-29uC1r base-1x0h_u size16-1P40sf">channel name</h3>
+                                                    <div class="divider-3FBTu8"></div>
+                                                    <div class="topic-TCb_qw expandable-9fI_e3" role="button" tabindex="0">channel topic</div>
+                                                    ::after
+                                                </div>
+                                                <div class="toolbar-1t6TWx">
+                                                    <div class="iconWrapper-2OrFZ1 clickable-3rdHwn" role="button" aria-label="Pinned messages" tabindex="0">
+                                                        <svg width="24" height="24"></svg>
+                                                    </div>
+                                                </div>
+                                            </section>
+                                            <div class="content-yTz4x3">
+                                                ::before
+                                                <main class="chatContent-a9vAAp">
+                                                    <div class="messagesWrapper-1sRNjr group-spacing-16">
+                                                        <div class="scroller-2LSbBU auto-Ge5KZx scrollerBase-289Jih disableScrollAnchor-3V9UtP" dir="ltr" data-jump-section="global" tabindex="-1" style="overflow: hidden scroll; padding-right: 0px;">
+                                                            <div class="scrollerContent-WzeG7R content-3YMskv">
+                                                                <div class="scrollerInner-2YIMLh" aria-label="Messages in (channel name)" role="log" aria-orientation="vertical" data-list-id="chat-messages" tabindex="0" aria-live="off">
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <form class="form-2fGMdU">
+                                                        ::before
+                                                        <div>
+                                                            <div aria-controls="popout_8" aria-expanded="false">
+                                                                <div class="channelTextArea-rNsIhG channelTextArea-2VhZ6z">
+                                                                    <div class="scrollableContainer-2NUZem webkit-HjD9Er">
+                                                                        <div class="inner-MADQqc sansAttachButton-td2irx">
+                                                                            <div class="uploadInput-1XtQef">
+                                                                                <div class="file-input" tabindex="-1" style="position:absolute; top:0px; left: 0px; width:100%; height: 100%; opacity: 0; cursor: pointer;"></div>
+                                                                            </div>
+                                                                            <div class="attachWrapper-2TRKBi">
+                                                                                <button aria-label="Upload a File" type="button" class="attachButton-2WznTc attachButton-2dnuIu button-38aScr lookBlank-3eh91L colorBrand-3pXr91 grow-q77ONN">
+                                                                                    <div class="contents-18-Yxp attachButtonInner-PQjIyk">
+                                                                                        <svg width="24" height="24"></svg>
+                                                                                    </div>
+                                                                                </button>
+                                                                            </div>
+                                                                            <div class="textArea-12jD-V textAreaSlate-1ZzRVj slateContainer-3Qkn2x">
+                                                                                <div class="placeholder=37qJjk fontSize16Padding-3Wk7zP" aria-hidden="true">Message (channel)</div>
+                                                                                <div aria-label="message (channel)" aria-multiline="true" data-can-focus="true" data-slate-editor="true" data-key="0" contenteditable="true" class="markup-2BOw-j slateTextArea-1Mkdgw fontSize16Padding-3Wk7zP" autocorrect="off" spellcheck="true" role="textbox" data-gramm="false" style="outline: none; white-space: pre-wrap; overflow-wrap: break-word; -webkit-user-modify: read-write-plaintext-only;">
+                                                                                    <div data-slate-object="block" data-key="1" style="position: relative;">
+                                                                                        <span data-slate-object="text" data-key="2">
+                                                                                            <span data-slate-leaf="true" data-offset-key="2:0">
+                                                                                                <span data-slate-zero-width="z" data-slate-length=0>
+                                                                                                    "&#65289;"
+                                                                                                    <br>
+                                                                                                </span>
+                                                                                            </span>
+                                                                                        </span>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="buttons-3JBrkn">
+                                                                                <div class="buttonContainer-28fw2U">
+                                                                                    <button tabindex="0" aria-label="select emoji" type="button" class="emojiButtonNormal-TdumYh emojiButton-3uL3Aw emojiButton-pET4wH button-318s1X button-38aScr lookBlank-3eh9lL colorBrand-3pXr91 grow-q77ONN">
+                                                                                        <div class="contents-18-Yxp">
+                                                                                            <div class="sprite-2iCowe" style="background-position: 0px 0px; background-size: 242px 110px; transform: scale(1); filter: grayscale(100%);"></div>
+                                                                                        </div>
+                                                                                    </button>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                </main>
+                                                <!--member list removed for now-->
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </form>
+                            </div>
                         </div>
-                        <!--<div id=member-list-wrapper></div>-->
                     </div>
                 </div>
             </div>
         </div>
-    </html>
+    </body>
 </html>
