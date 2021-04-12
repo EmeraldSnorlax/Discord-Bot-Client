@@ -6,6 +6,28 @@
     display: flex;
 }
 
+.guilds-1SWlCJ {
+    position: relative;
+    width: 72px;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+}
+
+.wrapper-3NnKdC {
+    overflow: hidden;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 72px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    flex-shrink: 0;
+    position: relative;
+    background-color: var(--background-tertiary);
+}
+
 a, button, div, input, label, select, span, strong, textarea {
     outline: 0;
 }
