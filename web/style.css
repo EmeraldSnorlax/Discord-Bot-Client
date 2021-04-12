@@ -109,6 +109,24 @@
     flex: 1 1 auto;
 }
 
+.base-3dtUhz, .sidebar-2K8pFh {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    overflow: hidden;
+}
+
+.base-3dtUhz {
+    flex-direction: column;
+    position: relative;
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+}
+
 a, button, div, input, label, select, span, strong, textarea {
     outline: 0;
 }
