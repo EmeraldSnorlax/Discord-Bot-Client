@@ -1,6 +1,7 @@
 .userinfo {
     display: flex;
     height: 52px;
+    flex: 0 0 auto;
 }
 .userinfo .avatarcontainer {
     display: block;
@@ -10,10 +11,11 @@
 }
 .userinfo .nametag {
     display: block;
+    flex-grow: 1;
 }
 .userinfo .nametag .username {
     display: flex;
-
+    
 }
 .userinfo .nametag .extratxt {
     display: flex;
@@ -24,10 +26,13 @@
     display: flex;
     flex-direction: column;
     width:72px;
+    flex-shrink: 0;
+    overflow: hidden;
 }
 
 .guildlist {
     display: flex;
+    flex: 1 1 auto
 }
 
 .guildbtn {
@@ -43,21 +48,24 @@
 .appbase {
     display: flex;
     flex-direction: column;
+    flex-grow: 1;
 }
 
 .appsidebar {
     display: flex;
     flex-direction: column;
     width:240px;
+    flex: 0 0 auto;
 }
 
 .appsidebar-main {
     display: flex;
     flex-direction: column;
+    flex: 1 1 auto;
 }
 
 .appsidebar-scroller {
-
+    flex: 1 1 auto;
 }
 
 .chat {
@@ -83,10 +91,11 @@
 
 .channel-icon {
     display: block;
+    flex: 0 0 auto;
 }
 
 .channel-name {
-
+    flex: 1 1 auto;
 }
 
 .channel-name-inner {
@@ -95,21 +104,25 @@
 
 .chat-root {
     display: flex;
+    flex: 1 1 auto;
 }
 
 .channel-header {
     display:flex;
     height: 48px;
+    flex: 0 0 auto;
 }
 
 .channel-header-children {
     display: flex;
+    flex: 1 1 auto;
 }
 
 .channel-header-icon-wrapper {
     display: block;
     width:24px;
     height:24px;
+    flex: 0 0 auto;
 }
 
 .channel-header-icon {
@@ -118,26 +131,31 @@
 
 .channel-header-title {
     display:flex;
+    flex: 0 0 auto;
 }
 
 .divider {
     display:block;
     height: 24px;
     width:1px;
+    flex: 0 0 auto;
 }
 
 .channel-header-topic {
     display:block;
+    flex: 1 1 auto;
 }
 
 .channel-header-toolbar {
-    display:flex
+    display:flex;
+    flex: 0 0 auto;
 }
 
 .channel-header-mute-button-wrapper {
     display:block;
     height:24px;
     width:24px;
+    flex: 0 0 auto;
 }
 
 .channel-header-mute-button {
@@ -150,6 +168,7 @@
     display: block;
     height:24px;
     width:24px;
+    flex: 0 0 auto;
 }
 
 .channel-header-pins-button {
@@ -161,32 +180,38 @@
 .main-content {
     display: flex;
     flex-direction: row;
+    flex: 1 1 auto;
 }
 
 .chat-content {
     display: flex;
     flex-direction: column;
+    flex: 1 1 auto;
 }
 
 .messages-wrapper {
     display: flex;
+    flex: 1 1 auto;
 }
 
 .messages-scroller {
     display: block;
+    flex: 1 1 auto;
 }
 
 .messages-scroller-content {
     display: flex;
     flex-direction: column;
+
 }
 
 .messages-scroller-inner {
-    display:block
+    display:block;
 }
 
 .message-bar-form {
-    display: block
+    display: block;
+    flex-shrink: 0;
 }
 
 .message-bar-channel-text-area {
